@@ -1,27 +1,28 @@
-Site-specific Family History and Pathogenic Germline Variant Carrier Status  
+# Site-specific Family History and Pathogenic Germline Variant Carrier Status
+
+## Associated Manuscript
+
+**Site-specific Family History and Pathogenic Germline Variant Carrier Status Among Cancer-Free Individuals**
+
+Statistical analysis code accompanying a manuscript under revision at *Cancer Epidemiology, Biomarkers & Prevention*.
+
 Analysis Code README
 
-Purpose
+## Purpose
 
 This folder contains the R and Stata scripts used to prepare the analytic dataset and reproduce the tables, figures, supplementary analyses, and additional analyses for the manuscript.
 
-Data availability
+## Data availability
 
 Individual-level genetic and family history data are not included because they are subject to institutional, ethical, and participant-consent restrictions. Researchers with authorized access must provide the required source datasets and update the input and output file paths in the scripts as appropriate.
 
-Required data
+## Required Data
 
-The main downstream analyses use the cancer-free analytic dataset:
+The main analyses require an individual-level analytic dataset containing 11,811 cancer-free participants, including demographic characteristics, family history variables, and pathogenic germline variant carrier status.
 
-`ACC_PV_FH_controls_20260803.dta`
+The analytic dataset was constructed from restricted questionnaire and genetic data using `01_Data preparation.R`.
 
-The final analytic dataset contains 11,811 cancer-free participants.
-
-`01_Data preparation.R` uses the source questionnaire and genetic datasets to define the study population and construct the analysis variables.
-
-'10_Supplementary Table S2.do' additionally uses the source variant annotation file (Variant_annotations.xlsx) to generate the variant-level summary.
-
-Additional source data required for specific analyses are identified within the corresponding scripts.
+The script `10_Supplementary Table S2.do` additionally requires source variant and annotation data to generate the variant-level summary.
 
 ## Software
 
@@ -31,52 +32,52 @@ Required R packages are specified in the `library()` statements in each R script
 
 ## Scripts
 
-# 01_Data preparation.R
+### 01_Data preparation.R
 
 Prepares the cancer-free analytic dataset and derives the family history and PGV carrier variables used in subsequent analyses.
 
-# 02_Table 1_Baseline_Characteristics.R
+### 02_Table 1_Baseline_Characteristics.R
 
 Produces Table 1, including participant characteristics, family history prevalence, and PGV carrier status.
 
-# 03_Supplementary Table S3.R
+### 03_Supplementary Table S3.R
 
 Produces the primary prevalence estimates, adjusted odds ratios, 95% confidence intervals, interaction results, and detailed results reported in Table 2 and Supplementary Table S3.
 
-# 04_Supplementary Table S4.R
+### 04_Supplementary Table S4.R
 
 Performs sensitivity analyses separating BRCA1 and BRCA2 and evaluating the HRR gene group after excluding BRCA1/2. Results are reported in Supplementary Table S4.
 
-# 05_Figure_1_Overall association heatmap.R
+### 05_Figure_1_Overall association heatmap.R
 
 Creates Figure 1, showing the overall associations between family history categories and PGV carrier outcomes.
 
-# 06_Figure_2_Sex_Stratified_Heatmap.R
+### 06_Figure_2_Sex_Stratified_Heatmap.R
 
 Creates Figure 2, showing female- and male-specific associations between family history categories and PGV carrier outcomes.
 
-# 07_Supplementary Table S6.R
+### 07_Supplementary Table S6.R
 
 Calculates sensitivity, specificity, positive predictive value, negative predictive value, and false-negative results for family history as a marker of PGV carrier status. Results are reported in Supplementary Table S6.
 
-# 08_First_Degree_Relative_Counts.R
+### 08_First_Degree_Relative_Counts.R
 
 Summarizes the number of first-degree relatives covered by the family history assessment.
 
-# 09_PGV_Carrier_Distribution.R
+### 09_PGV_Carrier_Distribution.R
 
 Summarizes the distribution of PGV-positive genes per participant.
 
-# 10_Supplementary Table S2.do
+### 10_Supplementary Table S2.do
 
 Creates the variant-level summary reported in Supplementary Table S2 using the source variant and annotation data.
 The script generates the variant-level summary, incorporates the available variant annotations, and prepares input files for external VEP annotation. Population allele frequencies obtained through external annotation are not automatically imported into the final table by this script and require a separate integration step.
 
-# 11_Supplementary Table S5.R
+### 11_Supplementary Table S5.R
 
 Compares nested logistic regression models for PGV carrier status. The base model includes age, sex, and HERPACC recruitment phase. Expanded models additionally include either any cancer family history or the eight site-specific family history categories. Results are reported in Supplementary Table S5.
 
-# Running the analyses
+### Running the analyses
 
 Run `01_Data preparation.R` first to prepare the analytic dataset.
 
@@ -86,7 +87,7 @@ Scripts `05_Figure_1_Overall association heatmap.R` and `06_Figure_2_Sex_Stratif
 
 `10_Supplementary Table S2.do` requires the source variant and annotation data specified within the Stata script.
 
-#Main outputs
+## Main outputs
 
 - Table 1: Baseline characteristics
 - Table 2: Primary associations
